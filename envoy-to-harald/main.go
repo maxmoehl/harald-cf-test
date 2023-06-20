@@ -35,8 +35,9 @@ func Main() error {
 		Version: harald.Version{
 			Version: &configVersion,
 		},
-		LogLevel: slog.LevelDebug,
-		Rules:    make(map[string]harald.ForwardRule),
+		LogLevel:        slog.LevelDebug,
+		Rules:           make(map[string]harald.ForwardRule),
+		EnableListeners: true,
 	}
 	for _, listener := range envoyConfig.StaticResources.Listeners {
 		rule := harald.ForwardRule{
